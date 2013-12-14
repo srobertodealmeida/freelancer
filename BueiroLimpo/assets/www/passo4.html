@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        
+        <link rel="stylesheet" type="text/css" href="assets/styles/main.css" />
+        
+        <script type="text/javascript" src="assets/scripts/cordova-2.7.0.js"></script>
+        <script type="text/javascript" src="assets/scripts/jquery-1.9.1.js"></script>
+        <script type="text/javascript" src="assets/scripts/PandaJS.js"></script>
+        
+        <script>
+	    	var cuf = window.localStorage.getItem("cuf");
+	    	var latitude = window.localStorage.getItem("latitude");
+	    	var longitude = window.localStorage.getItem("longitude");
+	    	var data = window.localStorage.getItem("data");
+	    	var hora = window.localStorage.getItem("hora");
+	    	var fotoAntes = window.localStorage.getItem("fotoAntes");
+	    	var fotoDepois = window.localStorage.getItem("fotoDepois");
+
+	    	document.addEventListener("deviceready", onDeviceReady, false);
+	    	
+	    	function onDeviceReady() {
+	    		console.log("Conectando...");
+	    		
+	    		var db = window.openDatabase("bueiro", "1.0", "Bueiro Limpo", 104857600);
+	    		
+	    		console.log("Conectado !");
+	    		
+	    		db.transaction(createDB, onError);
+	    		
+	    		return;
+	    	}
+	    	
+	    	function createDB(tx)
+	    	{
+	    		console.log("Criando tabela...");
+	            tx.executeSql('CREATE TABLE IF NOT EXISTS Coletas ' +
+	            			  '(id INTEGER NOT NULL PRIMARY KEY, cuf, latitude, longitude, data, hora, fotoAntes, fotoDepois, sincronizado)');
+	            
+	            console.log("Tabela criada !");
+	            
+	            salvarColetas(tx);
+	    		
+	    		return false;
+	    	}
+	    	
+	    	function salvarColetas(tx)
+	    	{
+	    		console.log("Inserindo registros...");
+	    		tx.executeSql('INSERT INTO Coletas (cuf, latitude, longitude, data, hora, fotoAntes, fotoDepois, sincronizado) ' +
+	    					  'VALUES ("'+cuf+'","'+latitude+'","'+longitude+'","'+data+'","'+hora+'","'+fotoAntes+'","'+fotoDepois+'","nao")');
+	            
+	    		console.log("Registro criado !");
+	            
+	    		queryDB(tx);
+	    		
+	    		return false;
+	    	}
+	    	
+	    	function queryDB(tx) {
+	            tx.executeSql('SELECT * FROM Coletas', [], querySuccess, onError);
+	    		
+	    		return false;
+	        }
+	    	
+	        function querySuccess(tx, results) {
+	        	console.log("Returned rows = " + results.rows.length);
+
+	            if (!results.rowsAffected) {
+	            	alert('No rows affected!');
+	                return false;
+	            }
+
+	            //console.log("Last inserted row ID = " + results.insertId);
+	        }
+	    	
+	        function onError(err) {
+	            console.log("Error processing SQL: "+err.code);
+	    		
+	    		return false;
+	        }
+        	
+            $(function() {
+            	$("#btnNovo").click(function() {
+            		window.localStorage.removeItem("cuf");
+                	window.localStorage.removeItem("latitude");
+                	window.localStorage.removeItem("longitude");
+                	window.localStorage.removeItem("data");
+                	window.localStorage.removeItem("hora");
+                	
+            		document.location = "passo1.html";
+            	});
+            	
+                $("#btnCancel").click(function() {
+                    document.location = "passo3.html";
+                });
+            });
+        </script>
+    </head>
+    
+    <body>
+        <div class="top-bar">
+            <div class="title">Passo 4</div>
+        </div>
+        
+        <div class="content">
+	        <center><h2>Dados Salvos !</h2></center>
+	        <br />
+	        
+            <center><button id="btnNovo" class="blue">Novo Registro</button></center>
+            <br />
+            
+            <center><button id="btnSincronizar" class="blue">Sincronizar</button></center>
+            <br />
+        </div>
+    </body>
+</html>

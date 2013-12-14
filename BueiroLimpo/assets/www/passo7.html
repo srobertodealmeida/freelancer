@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        
+        <link rel="stylesheet" type="text/css" href="assets/styles/main.css" />
+        
+        <script type="text/javascript" src="assets/scripts/cordova-2.5.0.js"></script>
+        <script type="text/javascript" src="assets/scripts/jquery-1.9.1.js"></script>
+        <script type="text/javascript" src="assets/scripts/PandaJS.js"></script>
+        
+        <script>
+            $(function() {
+                var usuario = window.localStorage.getItem("usuario");
+                
+                $("#btnNext").click(function() {
+                    document.location = "passo8.html";
+                });
+            });
+        </script>
+    </head>
+    
+    <body>
+        <div class="top-bar">
+            <button id="btnCancel" class="absleft gray">Cancelar</button>
+            <button id="btnNext" class="absright blue">Próximo</button>
+            
+            <div class="title">Passo 7</div>
+        </div>
+        
+        <div class="content">            
+            <table class="form">
+                <tr>
+                    <td>Boca de lobo foi</td>
+                    <td>
+                        <select>
+                            <option value="1">Limpa</option>
+                            <option value="2">Inspecionada</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </body>
+</html>

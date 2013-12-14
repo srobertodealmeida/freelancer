@@ -1,0 +1,41 @@
+@import "top-bar.css";
+@import "bottom-bar.css";
+@import "content.css";
+@import "button.css";
+@import "table-form.css";
+@import "panel.css";
+
+body {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    
+    font-family: 'Aldrich', sans-serif;
+    background: #39455C;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.absleft {
+    left: 0px;
+}
+
+.absright {
+    right: 0px;
+}
+
+h2 {
+    color: #fff;
+    font-size: 15pt;
+    font-weight: normal;
+    text-align: center;
+    margin: 0px 0px 10px 0px;
+}

@@ -1,0 +1,25 @@
+.panel {
+    width: 100%;
+}
+
+.panel .title {
+    color: #fff;
+    margin: 0px 10px 5px 10px;
+    text-shadow: -1px 1px #000;
+}
+
+.panel .content {
+    font-size: 10pt;
+    background: #eee;
+    border-radius: 3px;
+    padding: 5px;
+    box-shadow: 0px 2px 5px #000;
+}
+
+.panel .content textarea {
+    width: 100%;
+    outline: none;
+    border: none;
+    background: transparent;
+    resize:none;
+}

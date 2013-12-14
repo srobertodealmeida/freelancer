@@ -1,0 +1,21 @@
+#panel-login {
+    margin: 30px auto;
+    
+    color: #fff;
+    font-weight: 300;
+    font-size: 30pt;
+    text-align: center;
+    text-shadow: -2px 2px #000;
+}
+
+#panel-login input[type=text],
+#panel-login input[type=password]{
+    padding: 10px;
+    
+    width: 85%;
+    height: 20px;
+    font-size: 13pt;
+    border-radius: 2px;
+    border: 0px solid #2c374c;
+    outline: none;
+}

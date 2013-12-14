@@ -1,0 +1,17 @@
+.bottom-bar {
+    position: absolute;
+    display: inline-block;
+    bottom: 0px;
+    width: 100%;
+    padding: 5px 0px;
+    
+    color: #fff;
+    height: 30px;
+    background: #1d1d1d;
+}
+
+.bottom-bar button {
+    width: 100px;
+    padding: 5px;
+    margin: 0px 5px;
+}

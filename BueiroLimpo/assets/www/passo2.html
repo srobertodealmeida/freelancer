@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        
+        <link rel="stylesheet" type="text/css" href="assets/styles/main.css" />
+        
+        <script type="text/javascript" src="assets/scripts/cordova-2.7.0.js"></script>
+        <script type="text/javascript" src="assets/scripts/jquery-1.9.1.js"></script>
+        <script type="text/javascript" src="assets/scripts/PandaJS.js"></script>
+        
+        <script>
+            $(function() {
+                $("#btnFoto").click(function() {
+	                navigator.camera.getPicture(onSuccess, onFail, {
+	                	quality: 50,
+	                    destinationType: Camera.DestinationType.DATA_URL
+	                });
+                });
+
+                function onSuccess(imageData) {
+                    var image = document.getElementById('imgFoto');
+                    image.src = "data:image/jpeg;base64," + imageData;
+                	window.localStorage.setItem("fotoAntes", imageData);
+                }
+
+                function onFail(message) {
+                    alert('Failed because: ' + message);
+                }
+                
+                $("#btnCancel").click(function() {
+                    document.location = "passo1.html";
+                });
+                
+                $("#btnNext").click(function() {
+                    document.location = "passo3.html";
+                });
+            });
+        </script>
+    </head>
+    
+    <body>
+        <div class="top-bar">
+            <button id="btnCancel" class="absleft gray">Voltar</button>
+            <button id="btnNext" class="absright blue">Próximo</button>
+            
+            <div class="title">Passo 2</div>
+        </div>
+        
+        <div class="content">
+        	<h2>Foto Antes da Limpeza</h2>
+        	
+            <center><button id="btnFoto" class="blue">Tirar Foto</button></center>
+            <br />
+            
+            <center><img id="imgFoto" style="width: 95%;" src="" /></center>
+        </div>
+    </body>
+</html>

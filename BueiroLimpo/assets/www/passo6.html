@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        
+        <link rel="stylesheet" type="text/css" href="assets/styles/main.css" />
+        
+        <script type="text/javascript" src="assets/scripts/cordova-2.5.0.js"></script>
+        <script type="text/javascript" src="assets/scripts/jquery-1.9.1.js"></script>
+        <script type="text/javascript" src="assets/scripts/PandaJS.js"></script>
+        
+        <script>
+            $(function() {
+                var usuario = window.localStorage.getItem("usuario");
+                
+                $("#btnNext").click(function() {
+                    document.location = "passo7.html";
+                });
+                
+                console.debug($("#chkNovaBL").find("input").val());
+                
+                $("#chkNovaBL").click(function() {
+                    var value = $(this).find("input").val();
+                    
+                    if(value == "off") {
+                        $("#novoFiltro").hide();
+                        $("#velhoFiltro").show();
+                    } else {
+                        $("#novoFiltro").show();
+                        $("#velhoFiltro").hide();
+                    }
+                });
+            });
+        </script>
+        
+        <style>
+            .cronometro {
+                margin: 3px 10px;
+                font-size: 14pt;
+            }
+            
+            .cronometro img {
+                width: 23px;
+                vertical-align: bottom;
+                margin-right: 10px;
+            }
+        </style>
+    </head>
+    
+    <body>
+        <div class="top-bar">
+            <button id="btnCancel" class="absleft gray">Cancelar</button>
+            <button id="btnNext" class="absright blue">Próximo</button>
+            
+            <div class="title">Passo 5.2</div>
+        </div>
+        
+        <div class="content">
+            <table class="form">
+                <tr>
+                    <td>Nova BL</td>
+                    <td>
+                        <div class="checkbox" id="chkNovaBL">
+                            <div class="button"></div>
+                            <input type="checkbox" value="off" />
+                        </div>
+                    </td>
+                </tr>
+                <tr id="velhoFiltro">
+                    <td>CUF</td>
+                    <td>
+                        <input type="text" id="txtCUF1" placeholder="00000-0" />
+                    </td>
+                </tr>
+            </table>
+            
+            <br/>
+            
+            <div id="novoFiltro" style="display: none;">
+                <h2>Nova Boca de Lobo</h2>
+
+                <table class="form">
+                    <tr>
+                        <td>CUF</td>
+                        <td>
+                            <input type="text" id="txtCUF2" placeholder="00000-0" />
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            Latitude
+                        </td>
+                        <td>
+                            <input type="text" id="txtLatitude" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Longitude
+                        </td>
+                        <td>
+                            <input type="text" id="txtLongitude" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            
+            <br/>
+            
+            <table class="form">
+                <tr>
+                    <td>Troca da tampa</td>
+                    <td>
+                        <div class="checkbox" id="chkTrocaTampa">
+                            <div class="button"></div>
+                            <input type="checkbox" value="off" />
+                        </div>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>Tampa lacrada</td>
+                    <td>
+                        <div class="checkbox" id="chkTampaLacrada">
+                            <div class="button"></div>
+                            <input type="checkbox" value="off" />
+                        </div>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>Necessita reforma/conservação</td>
+                    <td>
+                        <div class="checkbox" id="chkReforma">
+                            <div class="button"></div>
+                            <input type="checkbox" value="off" />
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            
+            <br/>
+            
+            <h2>Volume Total da Caixa</h2>
+            
+            <table class="form">
+                <tr>
+                    <td>Comprimento</td>
+                    <td>
+                        <input type="text" id="txtComprimento" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>Largura</td>
+                    <td>
+                        <input type="text" id="txtLargura" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>Profundidade</td>
+                    <td>
+                        <input type="text" id="txtProfundidade" />
+                    </td>
+                </tr>
+            </table>
+            
+            <br/>
+            
+            <h2>Volume Total da Parte Cheia</h2>
+            
+            <table class="form">
+                <tr>
+                    <td>Volume</td>
+                    <td>
+                        <select id="cmbVolume">
+                            <option value="1">Muito Sujo</option>
+                            <option value="2">Sujo</option>
+                            <option value="3">Normal</option>
+                            <option value="4">Leve</option>
+                            <option value="5">Muito Leve</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+            
+            <br/>
+            
+            <table class="form">
+                <tr>
+                    <td>Ramal obstruído</td>
+                    <td>
+                        <div class="checkbox" id="chkRamal">
+                            <div class="button"></div>
+                            <input type="checkbox" value="off" />
+                        </div>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>PV obstruído</td>
+                    <td>
+                        <div class="checkbox" id="chkPV">
+                            <div class="button"></div>
+                            <input type="checkbox" value="off" />
+                        </div>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>Há refluxo</td>
+                    <td>
+                        <div class="checkbox" id="chkRefluxo">
+                            <div class="button"></div>
+                            <input type="checkbox" value="off" />
+                        </div>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>Há rede clandestina</td>
+                    <td>
+                        <div class="checkbox" id="chkClandestina">
+                            <div class="button"></div>
+                            <input type="checkbox" value="off" />
+                        </div>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>Comporta Ecco Filtro</td>
+                    <td>
+                        <div class="checkbox" id="chkClandestina">
+                            <div class="button"></div>
+                            <input type="checkbox" value="off" />
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            
+            <h2>Foto Depois da Limpeza</h2>
+            
+            <center><button class="blue">Tirar Foto</button></center>
+        </div>
+        
+        <div class="bottom-bar">
+            <div class="cronometro left">
+                <img src="assets/images/clock.png" />
+                
+                00:00
+            </div>
+            
+            <button class="blue right">Iniciar</button>
+        </div>
+    </body>
+</html>

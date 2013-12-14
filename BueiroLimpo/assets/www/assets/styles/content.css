@@ -1,0 +1,9 @@
+.content {
+    position: absolute;
+    padding: 8px;
+    left: 0px;
+    right: 0px;
+    top: 37px;
+    bottom: 0px;
+    overflow: auto;
+}

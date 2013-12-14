@@ -1,0 +1,26 @@
+button {
+    padding: 10px 20px;
+    width: 95%;
+    
+    color: #fff;
+    font-weight: normal;
+    font-size: 11pt;
+    border: none;
+    border-radius: 2px;
+    outline: none;
+}
+
+button.blue {
+    background: #26b6f2;
+}
+
+button.blue:active {
+    background: #147CB9;
+}
+
+button.gray {
+    background: #777;
+}
+button.gray:active {
+    background: #555;
+}
