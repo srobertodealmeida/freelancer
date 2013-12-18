@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+
+        <link rel="stylesheet" type="text/css" href="assets/styles/main.css" />
+        <link rel="stylesheet" type="text/css" href="assets/styles/login.css" />
+
+        <script type="text/javascript" src="assets/scripts/cordova-2.7.0.js"></script>
+        <script type="text/javascript" src="assets/scripts/jquery-1.9.1.js"></script>
+        <script type="text/javascript" src="assets/scripts/PandaJS.js"></script>
+        <script type="text/javascript" src="assets/scripts/AppConfig.js"></script>
+        <script type="text/javascript" src="assets/scripts/Model/UsuarioModel.js"></script>
+         <script type="text/javascript" src="assets/scripts/DAO/DAOConfig.js"></script>
+        <script type="text/javascript" src="assets/scripts/DAO/loginDAO.js"></script>
+        <script type="text/javascript" src="assets/scripts/Controller/loginController.js"></script>
+      
+    </head>
+    
+    <body>
+        <div id="panel-login">
+            <img src="assets/images/LogoEcco.png" width="80%" /><br/>
+            <input type="text" id="usuario" placeholder="Usuário" /><br />
+            <input type="password" id="senha" placeholder="Senha" /><br />
+            <button class="blue" onclick="validaLogin();">ENTRAR</button>
+        </div>
+    </body>
+</html>
