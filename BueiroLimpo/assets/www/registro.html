@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        
+        <link rel="stylesheet" type="text/css" href="assets/styles/main.css" />
+        
+        <script type="text/javascript" src="assets/scripts/cordova-2.7.0.js"></script>
+        <script type="text/javascript" src="assets/scripts/jquery-1.9.1.js"></script>
+        <script type="text/javascript" src="assets/scripts/Model/RegistroModel.js"></script>
+        <script type="text/javascript" src="assets/scripts/DAO/DAOConfig.js"></script>
+        <script type="text/javascript" src="assets/scripts/DAO/registroDAO.js"></script>
+        <script type="text/javascript" src="assets/scripts/Controller/registroController.js"></script>
+
+    </head>
+    
+    <body>
+        <div class="top-bar">
+            <button id="btnCancel" onclick="cancelarRegistro();" class="absleft gray">Voltar</button>
+            <button id="btnNext" onclick="salvaRegistro();" class="absright blue">Próximo</button>
+            
+            <div class="title">Passo 1</div>
+        </div>
+        
+        <div class="content">
+            <table class="form">
+                <tr>
+                    <td>C.U.F.</td>
+                    <td>
+                        <input type="number" id="txtCUF"  placeholder="00000-00" />
+                    </td>
+                </tr>
+                
+                <tr>
+                	<td>Data</td>
+                	<td>
+                		<input type="text" id="txtData" />
+                	</td>
+                </tr>
+                
+                <tr>
+                	<td>Hora</td>
+                	<td>
+                		<input type="text" id="txtHora" />
+                	</td>
+                </tr>
+                
+                <tr>
+                    <td>Latitude</td>
+                    <td>
+                        <input type="text" id="txtLatitude" />
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>Longitude</td>
+                    <td>
+                        <input type="text" id="txtLongitude" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+            
+            <center><button id="btnPosicionamento" onclick="buscaPosicionamento();" class="blue">Buscar Posicionamento</button></center>
+        <div class="msg_erro" style="display: none;"></div>
+       <center> <div class="img-loading" style="display: none;"><img src="assets/images/loading.gif" id="preloader_image" ></div></center>
+        
+        </div>
+        
+    </body>
+</html>
