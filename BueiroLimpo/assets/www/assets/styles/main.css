@@ -39,3 +39,24 @@ h2 {
     text-align: center;
     margin: 0px 0px 10px 0px;
 }
+.msg_erro{
+	background-color: #FFBABA;
+color: #D8000C;
+padding:4px;
+text-align:center;
+
+border: 1px solid;
+
+margin: 10px 0px;
+
+padding:15px 10px 15px;
+
+background-repeat: no-repeat;
+
+background-position: 10px center;
+}
+
+.img-loading img{
+margin-top:30px;
+height: 60px;
+}

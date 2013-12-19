@@ -45,6 +45,7 @@ function carregaUsuariosBanco(tx) {
 	}
 }
 
+// Valida usuario e senha com o que se tem no BD device.
 function validaLogin(){
 	var usuario = $("#usuario").val();
 	var senha = $("#senha").val();
@@ -52,7 +53,8 @@ function validaLogin(){
 		tx.executeSql('SELECT * FROM Usuario where nome="'+usuario+'"', [], function(tx, result) {
 			if (result.rows.length > 0) {
 				if(result.rows.item(0).senha == senha){
-					document.location = "passo1.html";
+					window.localStorage.setItem("usuario", usuario);
+					document.location = "registro.html";
 				}else{
 					alert('Senha Inválida');
 				}
@@ -65,37 +67,5 @@ function validaLogin(){
 
 
 $(function() {
-	/**
-	$("button").click(function() {
-		var usuario = $("#usuario").val();
-		var senha = $("#senha").val();
-
-		if (!AppConfig.testMode) {
-			PandaJS.webService({
-				url : AppConfig.webServiceUrl,
-				method : "VerifyLogin",
-				data : {
-					username : "\"" + usuario + "\"",
-					password : "\"" + senha + "\""
-				},
-				success : function(data) {
-					if (data.d == "true") {
-						window.localStorage.setItem("usuario", usuario);
-						document.location = "passo1.html";
-					} else
-						alert("Usu�rio ou senha incorretos !");
-				},
-				error : function(data) {
-					console.debug("Error: ");
-					console.debug(data);
-					alert("Error: " + data);
-				}
-			});
-		} else {
-			document.location = "passo1.html";
-		}
-
-		return false;
-	});
-	*/
+	
 });
